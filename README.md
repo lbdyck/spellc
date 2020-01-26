@@ -1,9 +1,11 @@
-# spellc
+# SPELLC
 ISPF Edit Spell Checker
 
-This data set contains an ISPF Edit command to spell check your data.           
+#Note: This tool is best clone (installed) using zigi (z/OS ISPF Git Interface) which can be found at zigi.rocks).
+
+This site contains an ISPF Edit command to spell check your data.           
                                                                                 
-Members of this data set:                                                       
+Members of the PDS dataset:                                                       
                                                                                 
     $DOC     What you are reading                                               
     $MORE    Information on where to find words to add to or create a           
