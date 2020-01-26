@@ -1,7 +1,7 @@
 # SPELLC
 ISPF Edit Spell Checker
 
-#Note: This tool is best clone (installed) using zigi (z/OS ISPF Git Interface) which can be found at zigi.rocks).
+<b>Note:</b> This tool is best clone (installed) using zigi (z/OS ISPF Git Interface) which can be found at zigi.rocks).
 
 This site contains an ISPF Edit command to spell check your data.           
                                                                                 
