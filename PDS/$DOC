@@ -11,9 +11,6 @@ Members of this data set:
              there are invalid words
     WGOOD    A small member that can be used to verify SPELLC
              where all words are valid.
-    WORDS    Sample starter dictionary (English)
-             *** please share updates with the author so others
-             *** may benefit from your updated word list
 
              Alternate dictionaries can be created for other
              languages but only one installation dictionary is
@@ -54,7 +51,7 @@ for their contributions to this package.
 
 Installation:
 
-    1. Copy member WORDS into a sequential data set that can be
+    1. Copy dataset WORDS into a sequential data set that can be
        accessed by all TSO/ISPF users. A DCB of RECFM=VB LRECL=84
        is suggested.
     2. Edit member SPELLCDF and update as appropriate
