@@ -1,5 +1,5 @@
 /* --------------------  rexx procedure  -------------------- */
- ver = "2.3"
+ ver = "2.4"
 /* Name:      SPELLC                                          *
  *                                                            *
  * Function:  Spell Check ISPF Edit Macro                     *
@@ -24,6 +24,8 @@
  * Custom:    Look in the SPELLCDF exec for customizations    *
  *                                                            *
  * History:                                                   *
+ *            06/27/22 - 2.4                                  *
+ *                     - Add comma to public word count       *
  *            05/12/17 - 2.3                                  *
  *                     - Add missing Otherwise to Select      *
  *            05/10/17 - 2.3                                  *
@@ -266,6 +268,7 @@
        public = public + 1
        end
     end
+    public = addcomma(public)
     drop dict.i
 
 /* ----------------------------- *
@@ -736,3 +739,31 @@ if sysvar("sysenv") <> "FORE" then exit 8
 say "Report the error in this application along with the",
     "syntax used."
 exit 8
+
+  /* ----------------- REXX ------------------------- *
+  | Take a number and display it with comma's in it. |
+  |                                                  |
+  | e.g.  1000 becomes 1,000                         |
+  |                                                  |
+  | usage:   comma_num = addcomma(number)            |
+  |                                                  |
+  | supports numbers up to 34 digits long            |
+  |                                                  |
+  | Copied from Doug Nadel                           |
+  * ------------------------------------------------ */
+AddComma:
+  arg bignum
+  cbignum = strip(translate('0,123,456,789,abc,def,ghi,jkl,mno,pqr,stu,vwx', ,
+    right(bignum,34,','), ,
+    '0123456789abcdefghijklmnopqrstuvwx'),'L',',')
+  return cbignum
+
+AddComma: Procedure
+  arg bytes
+/* ----------------------------------------------------- */
+/* number format code thanks to Doug Nadel               */
+/* ----------------------------------------------------- */
+  str=strip(translate('0,123,456,789,abc,def', ,
+    right(bytes,16,','), ,
+    '0123456789abcdef'),'L',',')
+  bytes = strip(str)
